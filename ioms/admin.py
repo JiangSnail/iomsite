@@ -47,11 +47,13 @@ class SubjectAdmin(ImportExportModelAdmin):
 
 class IomAdmin(ImportExportModelAdmin):
     resources_class = IomResource
-    list_display = ['unit','RFI','PO_Description','speciality', 'speciality_Chn',
-    'name','title_Chn',
+    list_display = ['name','RFI','PO_Description','title_Chn','title',
+    'equipment','speciality', 'subject',
     'title']
-    list_filter = ['speciality']
-    search_fields = ['PO_Description','speciality', 'speciality_Chn']
+    list_filter = ['speciality','subject']
+    search_fields = ['name','RFI','PO_Description','title_Chn','title',
+    'equipment',
+    'title']
     def speciality_Chn(self, obj):
         return obj.speciality.speciality_Chn
     speciality_Chn.short_description = '专业' 
